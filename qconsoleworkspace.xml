@@ -1,0 +1,3 @@
+<export><workspace name="Workspace"><query name="DELETE match summaries" focus="true" listorder="1" taborder="1" active="true" database="5069726207263817097" server="12795485922193324964" database-name="data-hub-FINAL" server-name="data-hub-FINAL" mode="javascript">'use strict';
+declareUpdate()
+xdmp.collectionDelete('datahubMasteringMatchSummary')</query></workspace></export>

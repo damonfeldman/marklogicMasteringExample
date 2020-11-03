@@ -58,10 +58,10 @@
               "propertyName" : "SSN",
               "weight" : "20"
             }, {
-              "propertyName" : "name",
+              "propertyName" : "nametype.firstName",
               "weight" : "12"
             }, {
-              "propertyName" : "name",
+              "propertyName" : "nametype.lastName",
               "weight" : "8"
             } ],
             "expand" : [ ],
