@@ -31,17 +31,48 @@
         "user" : "",
         "runBefore" : false
       },
-      "retryLimit" : null,
+      "retryLimit" : 0,
       "batchSize" : 100,
       "threadCount" : 4,
       "stepDefinitionName" : "default-ingestion",
       "stepDefinitionType" : "INGESTION",
       "fileLocations" : {
-        "inputFilePath" : "/Users/dfeldman/ProjectRepos/masterigTests/data/persons",
+        "inputFilePath" : "data/persons",
         "inputFileType" : "json",
         "outputURIReplacement" : "",
         "separator" : ""
       }
+    },
+    "2" : {
+      "name" : "MapPersonJSON",
+      "description" : "",
+      "options" : {
+        "additionalCollections" : [ ],
+        "sourceQuery" : "cts.collectionQuery([\"IngestPersonJson\"])",
+        "mapping" : {
+          "name" : "Person-MapPersonJSON",
+          "version" : 0
+        },
+        "targetEntity" : "Person",
+        "sourceDatabase" : "data-hub-STAGING",
+        "collections" : [ "MapPersonJSON", "Person" ],
+        "permissions" : "data-hub-operator,read,data-hub-operator,update",
+        "validateEntity" : false,
+        "sourceCollection" : "IngestPersonJson",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-FINAL"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : null,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "entity-services-mapping",
+      "stepDefinitionType" : "MAPPING"
     }
   }
 }
