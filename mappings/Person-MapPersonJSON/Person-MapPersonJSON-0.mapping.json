@@ -7,6 +7,19 @@
   "sourceContext" : "/",
   "sourceURI" : "/Users/dfeldman/ProjectRepos/masterigTests/data/persons/ssn-match1.json",
   "properties" : {
+    "address" : {
+      "sourcedFrom" : "/",
+      "targetEntityType" : "#/definitions/addresstype",
+      "properties" : {
+        "street" : {
+          "sourcedFrom" : "Address"
+        },
+        "zip" : {
+          "sourcedFrom" : "/",
+          "targetEntityType" : "#/definitions/ziptype"
+        }
+      }
+    },
     "name" : {
       "sourcedFrom" : "/",
       "targetEntityType" : "#/definitions/nametype",

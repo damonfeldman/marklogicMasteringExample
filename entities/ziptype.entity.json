@@ -1,0 +1,26 @@
+{
+  "info" : {
+    "title" : "ziptype",
+    "version" : "0.0.1",
+    "baseUri" : "http://example.org/"
+  },
+  "definitions" : {
+    "ziptype" : {
+      "required" : [ ],
+      "pii" : [ ],
+      "elementRangeIndex" : [ ],
+      "rangeIndex" : [ ],
+      "wordLexicon" : [ ],
+      "properties" : {
+        "zip5" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "zip4" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        }
+      }
+    }
+  }
+}

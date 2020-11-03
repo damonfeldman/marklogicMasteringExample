@@ -1,27 +1,10 @@
 {
   "info" : {
-    "title" : "Person",
+    "title" : "addresstype",
     "version" : "0.0.1",
     "baseUri" : "http://example.org/"
   },
   "definitions" : {
-    "nametype" : {
-      "required" : [ ],
-      "pii" : [ ],
-      "elementRangeIndex" : [ ],
-      "rangeIndex" : [ ],
-      "wordLexicon" : [ ],
-      "properties" : {
-        "firstName" : {
-          "datatype" : "string",
-          "collation" : "http://marklogic.com/collation/codepoint"
-        },
-        "lastName" : {
-          "datatype" : "string",
-          "collation" : "http://marklogic.com/collation/codepoint"
-        }
-      }
-    },
     "addresstype" : {
       "required" : [ ],
       "pii" : [ ],
@@ -39,25 +22,6 @@
         },
         "zip" : {
           "$ref" : "#/definitions/ziptype"
-        }
-      }
-    },
-    "Person" : {
-      "required" : [ ],
-      "pii" : [ ],
-      "elementRangeIndex" : [ ],
-      "rangeIndex" : [ ],
-      "wordLexicon" : [ ],
-      "properties" : {
-        "SSN" : {
-          "datatype" : "string",
-          "collation" : "http://marklogic.com/collation/codepoint"
-        },
-        "name" : {
-          "$ref" : "#/definitions/nametype"
-        },
-        "address" : {
-          "$ref" : "#/definitions/addresstype"
         }
       }
     },

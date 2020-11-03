@@ -1,9 +1,9 @@
 {
   "Person" : {
-    "x" : 81,
-    "y" : 119,
-    "width" : 535,
-    "height" : 221,
+    "x" : 215,
+    "y" : 127,
+    "width" : 405,
+    "height" : 222,
     "vertices" : { }
   },
   "nametype" : {
@@ -11,6 +11,20 @@
     "y" : 143,
     "width" : 480,
     "height" : 151,
+    "vertices" : { }
+  },
+  "addresstype" : {
+    "x" : 682,
+    "y" : 333,
+    "width" : 350,
+    "height" : 144,
+    "vertices" : { }
+  },
+  "ziptype" : {
+    "x" : 1067,
+    "y" : 335,
+    "width" : 350,
+    "height" : 144,
     "vertices" : { }
   }
 }
