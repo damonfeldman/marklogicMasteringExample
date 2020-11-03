@@ -1,0 +1,16 @@
+{
+  "Person" : {
+    "x" : 81,
+    "y" : 119,
+    "width" : 535,
+    "height" : 221,
+    "vertices" : { }
+  },
+  "nametype" : {
+    "x" : 749,
+    "y" : 143,
+    "width" : 480,
+    "height" : 151,
+    "vertices" : { }
+  }
+}
