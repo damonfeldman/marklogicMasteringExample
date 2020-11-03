@@ -1,0 +1,105 @@
+{
+  "name" : "PersonMasteringTwoSteps",
+  "description" : "Mastering flow with match and merge separate for performance",
+  "batchSize" : 100,
+  "threadCount" : 4,
+  "stopOnError" : false,
+  "options" : { },
+  "version" : 0,
+  "steps" : {
+    "1" : {
+      "name" : "PersonMatch",
+      "description" : "",
+      "options" : {
+        "stepUpdate" : false,
+        "additionalCollections" : [ ],
+        "sourceQuery" : "cts.collectionQuery([\"MapPersonJSON\"])",
+        "acceptsBatch" : true,
+        "targetEntity" : "Person",
+        "sourceDatabase" : "data-hub-FINAL",
+        "collections" : [ "PersonMatch", "Person" ],
+        "permissions" : "data-hub-operator,read,data-hub-operator,update",
+        "matchOptions" : {
+          "propertyDefs" : {
+            "property" : [ {
+              "localname" : "SSN",
+              "name" : "SSN"
+            }, {
+              "localname" : "name",
+              "name" : "name"
+            } ]
+          },
+          "algorithms" : {
+            "algorithm" : [ {
+              "name" : "double-metaphone",
+              "function" : "double-metaphone",
+              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
+              "at" : "/com.marklogic.smart-mastering/algorithms/double-metaphone.xqy"
+            }, {
+              "name" : "thesaurus",
+              "function" : "thesaurus",
+              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
+              "at" : "/com.marklogic.smart-mastering/algorithms/thesaurus.xqy"
+            }, {
+              "name" : "zip-match",
+              "function" : "zip-match",
+              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
+              "at" : "/com.marklogic.smart-mastering/algorithms/zip.xqy"
+            }, {
+              "name" : "standard-reduction",
+              "function" : "standard-reduction"
+            } ]
+          },
+          "collections" : {
+            "content" : [ ]
+          },
+          "scoring" : {
+            "add" : [ {
+              "propertyName" : "SSN",
+              "weight" : "20"
+            }, {
+              "propertyName" : "name",
+              "weight" : "12"
+            }, {
+              "propertyName" : "name",
+              "weight" : "8"
+            } ],
+            "expand" : [ ],
+            "reduce" : [ ]
+          },
+          "actions" : {
+            "action" : [ ]
+          },
+          "thresholds" : {
+            "threshold" : [ {
+              "above" : "25",
+              "label" : "merge",
+              "action" : "merge"
+            }, {
+              "above" : "18",
+              "label" : "likely",
+              "action" : "notify"
+            } ]
+          },
+          "tuning" : {
+            "maxScan" : 200
+          }
+        },
+        "sourceCollection" : "MapPersonJSON",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-FINAL"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : null,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "default-matching",
+      "stepDefinitionType" : "MATCHING"
+    }
+  }
+}
