@@ -25,9 +25,9 @@
               "localname" : "SSN",
               "name" : "SSN"
             }, {
-              "localname" : "name",
-              "name" : "name"
-            } ]
+              "localname" : "nametype.lastNamex",
+              "name" : "nametype.lastNamex"
+            }]
           },
           "algorithms" : {
             "algorithm" : [ {
@@ -58,12 +58,9 @@
               "propertyName" : "SSN",
               "weight" : "20"
             }, {
-              "propertyName" : "nametype.firstName",
-              "weight" : "12"
-            }, {
               "propertyName" : "nametype.lastName",
               "weight" : "8"
-            } ],
+            }],
             "expand" : [ ],
             "reduce" : [ ]
           },
