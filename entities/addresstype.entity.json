@@ -21,24 +21,7 @@
           "collation" : "http://marklogic.com/collation/codepoint"
         },
         "zip" : {
-          "$ref" : "#/definitions/ziptype"
-        }
-      }
-    },
-    "ziptype" : {
-      "required" : [ ],
-      "pii" : [ ],
-      "elementRangeIndex" : [ ],
-      "rangeIndex" : [ ],
-      "wordLexicon" : [ ],
-      "properties" : {
-        "zip5" : {
-          "datatype" : "string",
-          "collation" : "http://marklogic.com/collation/codepoint"
-        },
-        "zip4" : {
-          "datatype" : "string",
-          "collation" : "http://marklogic.com/collation/codepoint"
+          "$ref" : "http://example.org/ziptype-0.0.1/ziptype"
         }
       }
     }

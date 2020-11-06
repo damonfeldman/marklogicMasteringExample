@@ -16,7 +16,15 @@
         },
         "zip" : {
           "sourcedFrom" : "/",
-          "targetEntityType" : "#/definitions/ziptype"
+          "targetEntityType" : "#/definitions/ziptype",
+          "properties" : {
+            "zip5": {
+              "sourcedFrom" : "ZipCode"
+            }, 
+            "zip4": {
+              "sourcedFrom" : "Zip4"
+            }
+          }
         }
       }
     },
