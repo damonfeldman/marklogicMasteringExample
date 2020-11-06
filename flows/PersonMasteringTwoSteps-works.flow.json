@@ -25,12 +25,9 @@
               "localname" : "SSN",
               "name" : "SSN"
             }, {
-              "localname" : "nametype.firstName",
-              "name" : "nametype.firstName"
-            }, {
-              "localname" : "nametype.lastName",
-              "name" : "nametype.lastName"
-            } ]
+              "localname" : "name",
+              "name" : "name"
+            }]
           },
           "algorithms" : {
             "algorithm" : [ {
