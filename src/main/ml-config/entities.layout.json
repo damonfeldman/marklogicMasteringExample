@@ -1,30 +1,30 @@
 {
   "Person" : {
-    "x" : 215,
-    "y" : 127,
-    "width" : 405,
-    "height" : 222,
-    "vertices" : { }
-  },
-  "nametype" : {
-    "x" : 749,
-    "y" : 143,
-    "width" : 480,
-    "height" : 151,
-    "vertices" : { }
-  },
-  "addresstype" : {
-    "x" : 682,
-    "y" : 333,
-    "width" : 350,
-    "height" : 144,
+    "x" : 51,
+    "y" : 178,
+    "width" : 355,
+    "height" : 195,
     "vertices" : { }
   },
   "ziptype" : {
-    "x" : 1067,
-    "y" : 335,
+    "x" : 858,
+    "y" : 337,
     "width" : 350,
-    "height" : 144,
+    "height" : 166,
+    "vertices" : { }
+  },
+  "addresstype" : {
+    "x" : 467,
+    "y" : 303,
+    "width" : 350,
+    "height" : 173,
+    "vertices" : { }
+  },
+  "nametype" : {
+    "x" : 469,
+    "y" : 104,
+    "width" : 350,
+    "height" : 168,
     "vertices" : { }
   }
 }

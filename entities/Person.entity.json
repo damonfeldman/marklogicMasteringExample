@@ -5,6 +5,43 @@
     "baseUri" : "http://example.org/"
   },
   "definitions" : {
+    "nametype" : {
+      "required" : [ ],
+      "pii" : [ ],
+      "elementRangeIndex" : [ ],
+      "rangeIndex" : [ ],
+      "wordLexicon" : [ ],
+      "properties" : {
+        "firstName" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "lastName" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        }
+      }
+    },
+    "addresstype" : {
+      "required" : [ ],
+      "pii" : [ ],
+      "elementRangeIndex" : [ ],
+      "rangeIndex" : [ ],
+      "wordLexicon" : [ ],
+      "properties" : {
+        "street" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "city" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "zip" : {
+          "$ref" : "#/definitions/ziptype"
+        }
+      }
+    },
     "Person" : {
       "required" : [ ],
       "pii" : [ ],
@@ -17,10 +54,27 @@
           "collation" : "http://marklogic.com/collation/codepoint"
         },
         "name" : {
-          "$ref" : "http://example.org/nametype-0.0.1/nametype"
+          "$ref" : "#/definitions/nametype"
         },
         "address" : {
-          "$ref" : "http://example.org/addresstype-0.0.1/addresstype"
+          "$ref" : "#/definitions/addresstype"
+        }
+      }
+    },
+    "ziptype" : {
+      "required" : [ ],
+      "pii" : [ ],
+      "elementRangeIndex" : [ ],
+      "rangeIndex" : [ ],
+      "wordLexicon" : [ ],
+      "properties" : {
+        "zip5" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
+        },
+        "zip4" : {
+          "datatype" : "string",
+          "collation" : "http://marklogic.com/collation/codepoint"
         }
       }
     }
