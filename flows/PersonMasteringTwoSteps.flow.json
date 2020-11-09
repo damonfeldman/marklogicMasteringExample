@@ -95,11 +95,78 @@
         "user" : "",
         "runBefore" : false
       },
-      "retryLimit" : null,
+      "retryLimit" : 0,
       "batchSize" : 100,
       "threadCount" : 4,
       "stepDefinitionName" : "default-matching",
       "stepDefinitionType" : "MATCHING"
+    },
+    "2" : {
+      "name" : "PersonMerge",
+      "description" : "",
+      "options" : {
+        "stepUpdate" : false,
+        "additionalCollections" : [ ],
+        "sourceQuery" : "cts.collectionQuery([\"datahubMasteringMatchSummary\"])",
+        "acceptsBatch" : false,
+        "targetEntity" : "Person",
+        "sourceDatabase" : "data-hub-FINAL",
+        "collections" : [ "PersonMerge", "Person" ],
+        "mergeOptions" : {
+          "matchOptions" : "",
+          "propertyDefs" : {
+            "properties" : [ {
+              "localname" : "SSN",
+              "name" : "SSN"
+            }, {
+              "localname" : "name",
+              "name" : "name"
+            }, {
+              "localname" : "address",
+              "name" : "address"
+            }, {
+              "path": "/es:envelope/es:instance/Person/name/firstName",
+              "name": "firstName"
+            }],
+            "namespaces" : { }
+          },
+          "algorithms" : {
+            "stdAlgorithm" : {
+              "timestamp" : { }
+            },
+            "custom" : [ ],
+            "collections" : { }
+          },
+          "mergeStrategies" : [ ],
+          "merging" : [ {
+            "propertyName" : "SSN",
+            "maxValues" : "1",
+            "sourceWeights" : [ ]
+          }, {
+            "propertyName" : "firstName",
+            "maxValues" : "999",
+            "sourceWeights" : [ ]
+          }, {
+            "propertyName" : "address",
+            "sourceWeights" : [ ]
+          } ]
+        },
+        "permissions" : "data-hub-operator,read,data-hub-operator,update",
+        "sourceCollection" : "datahubMasteringMatchSummary",
+        "outputFormat" : "json",
+        "targetDatabase" : "data-hub-FINAL"
+      },
+      "customHook" : {
+        "module" : "",
+        "parameters" : { },
+        "user" : "",
+        "runBefore" : false
+      },
+      "retryLimit" : null,
+      "batchSize" : 100,
+      "threadCount" : 4,
+      "stepDefinitionName" : "default-merging",
+      "stepDefinitionType" : "MERGING"
     }
   }
 }
