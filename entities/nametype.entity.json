@@ -13,8 +13,11 @@
       "wordLexicon" : [ ],
       "properties" : {
         "firstName" : {
-          "datatype" : "string",
-          "collation" : "http://marklogic.com/collation/codepoint"
+          "datatype" : "array",
+          "items" : {
+            "datatype" : "string",
+            "collation" : "http://marklogic.com/collation/codepoint"
+          }
         },
         "lastName" : {
           "datatype" : "string",
