@@ -34,4 +34,8 @@ dependencies {
     compile 'com.marklogic:marklogic-xcc:9.0.7'
 }
 
+// must have run envision and logged into that app to install this reset module
+task resetDBs(type: com.marklogic.gradle.task.ServerEvalTask) {
+  javascript = 'xdmp.invoke("/envision/system/resetSystem.sjs")'
+}
 
