@@ -1,0 +1,31 @@
+{
+  "name": "IngestPersonJson",
+  "description": "",
+  "batchSize": 100,
+  "threadCount": 4,
+  "stepDefinitionName": "default-ingestion",
+  "stepDefinitionType": "INGESTION",
+  "additionalCollections": [ ],
+  "headers": {
+    "sources": [
+      {
+        "name": "Person"
+      }
+    ],
+    "createdOn": "currentDateTime",
+    "createdBy": "currentUser"
+  },
+  "sourceQuery": "cts.collectionQuery([])",
+  "collections": [
+    "IngestPersonJson"
+  ],
+  "permissions": "data-hub-operator,read,data-hub-operator,update",
+  "targetDatabase": "data-hub-STAGING",
+  "targetFormat": "json",
+  "inputFilePath": "/Users/dfeldman/ProjectRepos/masterigTests/data/persons",
+  "outputURIReplacement": "",
+  "separator": "",
+  "sourceFormat": "json",
+  "stepId": "IngestPersonJson-ingestion",
+  "lastUpdated": "2020-11-18T22:09:48.276248Z"
+}

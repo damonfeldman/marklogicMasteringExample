@@ -1,121 +1,15 @@
 {
-  "name" : "PersonMastering",
-  "description" : "",
-  "batchSize" : 100,
-  "threadCount" : 4,
-  "stopOnError" : false,
-  "options" : { },
-  "version" : 0,
-  "steps" : {
-    "1" : {
-      "name" : "PersonMastering",
-      "description" : "",
-      "options" : {
-        "stepUpdate" : true,
-        "additionalCollections" : [ ],
-        "sourceQuery" : "cts.collectionQuery([\"MapPersonJSON\"])",
-        "acceptsBatch" : true,
-        "targetEntity" : "Person",
-        "sourceCollection" : "MapPersonJSON",
-        "targetDatabase" : "data-hub-FINAL",
-        "sourceDatabase" : "data-hub-FINAL",
-        "collections" : [ "PersonMastering", "Person" ],
-        "mergeOptions" : {
-          "matchOptions" : "",
-          "propertyDefs" : {
-            "properties" : [ ],
-            "namespaces" : { }
-          },
-          "algorithms" : {
-            "stdAlgorithm" : {
-              "timestamp" : { }
-            },
-            "custom" : [ ],
-            "collections" : { }
-          },
-          "mergeStrategies" : [ ],
-          "merging" : [ ]
-        },
-        "permissions" : "data-hub-operator,read,data-hub-operator,update",
-        "matchOptions" : {
-          "propertyDefs" : {
-            "property" : [ {
-              "localname" : "SSN",
-              "name" : "SSN"
-            }, {
-              "localname" : "name",
-              "name" : "name"
-            } ]
-          },
-          "algorithms" : {
-            "algorithm" : [ {
-              "name" : "double-metaphone",
-              "function" : "double-metaphone",
-              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
-              "at" : "/com.marklogic.smart-mastering/algorithms/double-metaphone.xqy"
-            }, {
-              "name" : "thesaurus",
-              "function" : "thesaurus",
-              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
-              "at" : "/com.marklogic.smart-mastering/algorithms/thesaurus.xqy"
-            }, {
-              "name" : "zip-match",
-              "function" : "zip-match",
-              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
-              "at" : "/com.marklogic.smart-mastering/algorithms/zip.xqy"
-            }, {
-              "name" : "standard-reduction",
-              "function" : "standard-reduction"
-            } ]
-          },
-          "collections" : {
-            "content" : [ ]
-          },
-          "scoring" : {
-            "add" : [ {
-              "propertyName" : "SSN",
-              "weight" : "20"
-            }, {
-              "propertyName" : "name",
-              "weight" : "12"
-            }, {
-              "propertyName" : "name",
-              "weight" : "8"
-            } ],
-            "expand" : [ ],
-            "reduce" : [ ]
-          },
-          "actions" : {
-            "action" : [ ]
-          },
-          "thresholds" : {
-            "threshold" : [ {
-              "above" : "25",
-              "label" : "definitive-match",
-              "action" : "merge"
-            }, {
-              "above" : "18",
-              "label" : "possible",
-              "action" : "notify"
-            } ]
-          },
-          "tuning" : {
-            "maxScan" : 200
-          }
-        },
-        "outputFormat" : "json"
-      },
-      "customHook" : {
-        "module" : "",
-        "parameters" : { },
-        "user" : "",
-        "runBefore" : false
-      },
-      "retryLimit" : null,
-      "batchSize" : 100,
-      "threadCount" : 1,
-      "stepDefinitionName" : "default-mastering",
-      "stepDefinitionType" : "MASTERING"
+  "name": "PersonMastering",
+  "description": "",
+  "batchSize": 100,
+  "threadCount": 4,
+  "stopOnError": false,
+  "options": { },
+  "version": 0,
+  "steps": {
+    "1": {
+      "stepId": "PersonMastering-PersonMastering-mastering"
     }
-  }
+  },
+  "lastUpdated": "2020-11-18T22:09:47.074441Z"
 }

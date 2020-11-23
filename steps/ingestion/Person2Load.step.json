@@ -1,0 +1,33 @@
+{
+  "headers": {
+    "sources": [
+      {
+        "name": "Person2Load"
+      }
+    ],
+    "createdOn": "currentDateTime",
+    "createdBy": "currentUser"
+  },
+  "collections": [
+    "Person2Load"
+  ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "batchSize": "5",
+  "name": "Person2Load",
+  "description": "",
+  "sourceFormat": "json",
+  "targetFormat": "json",
+  "outputURIPrefix": "/person/",
+  "stepDefinitionName": "default-ingestion",
+  "stepDefinitionType": "ingestion",
+  "stepId": "Person2Load-ingestion",
+  "targetDatabase": "data-hub-STAGING",
+  "provenanceGranularityLevel": "coarse",
+  "lastUpdated": "2020-11-20T16:20:43.323811Z",
+  "additionalCollections": [
+    "Person2"
+  ],
+  "sourceDatabase": null,
+  "processors": [ ],
+  "customHook": { }
+}

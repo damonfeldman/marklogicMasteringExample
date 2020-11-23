@@ -1,172 +1,18 @@
 {
-  "name" : "PersonMasteringTwoSteps",
-  "description" : "Mastering flow with match and merge separate for performance",
-  "batchSize" : 100,
-  "threadCount" : 4,
-  "stopOnError" : false,
-  "options" : { },
-  "version" : 0,
-  "steps" : {
-    "1" : {
-      "name" : "PersonMatch",
-      "description" : "",
-      "options" : {
-        "stepUpdate" : false,
-        "additionalCollections" : [ ],
-        "sourceQuery" : "cts.collectionQuery([\"MapPersonJSON\"])",
-        "acceptsBatch" : true,
-        "targetEntity" : "Person",
-        "sourceDatabase" : "data-hub-FINAL",
-        "collections" : [ "PersonMatch", "Person" ],
-        "permissions" : "data-hub-operator,read,data-hub-operator,update",
-        "matchOptions" : {
-          "propertyDefs" : {
-            "property" : [ {
-              "localname" : "SSN",
-              "name" : "SSN"
-            }, {
-              "localname" : "name",
-              "name" : "name"
-            } ]
-          },
-          "algorithms" : {
-            "algorithm" : [ {
-              "name" : "double-metaphone",
-              "function" : "double-metaphone",
-              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
-              "at" : "/com.marklogic.smart-mastering/algorithms/double-metaphone.xqy"
-            }, {
-              "name" : "thesaurus",
-              "function" : "thesaurus",
-              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
-              "at" : "/com.marklogic.smart-mastering/algorithms/thesaurus.xqy"
-            }, {
-              "name" : "zip-match",
-              "function" : "zip-match",
-              "namespace" : "http://marklogic.com/smart-mastering/algorithms",
-              "at" : "/com.marklogic.smart-mastering/algorithms/zip.xqy"
-            }, {
-              "name" : "standard-reduction",
-              "function" : "standard-reduction"
-            } ]
-          },
-          "collections" : {
-            "content" : [ ]
-          },
-          "scoring" : {
-            "add" : [ {
-              "propertyName" : "SSN",
-              "weight" : "20"
-            }, {
-              "propertyName" : "nametype.firstName",
-              "weight" : "12"
-            }, {
-              "propertyName" : "nametype.lastName",
-              "weight" : "8"
-            } ],
-            "expand" : [ ],
-            "reduce" : [ ]
-          },
-          "actions" : {
-            "action" : [ ]
-          },
-          "thresholds" : {
-            "threshold" : [ {
-              "above" : "25",
-              "label" : "merge",
-              "action" : "merge"
-            }, {
-              "above" : "18",
-              "label" : "likely",
-              "action" : "notify"
-            } ]
-          },
-          "tuning" : {
-            "maxScan" : 200
-          }
-        },
-        "sourceCollection" : "MapPersonJSON",
-        "outputFormat" : "json",
-        "targetDatabase" : "data-hub-FINAL"
-      },
-      "customHook" : {
-        "module" : "",
-        "parameters" : { },
-        "user" : "",
-        "runBefore" : false
-      },
-      "retryLimit" : 0,
-      "batchSize" : 100,
-      "threadCount" : 4,
-      "stepDefinitionName" : "default-matching",
-      "stepDefinitionType" : "MATCHING"
+  "name": "PersonMasteringTwoSteps",
+  "description": "Mastering flow with match and merge separate for performance",
+  "batchSize": 100,
+  "threadCount": 4,
+  "stopOnError": false,
+  "options": { },
+  "version": 0,
+  "steps": {
+    "1": {
+      "stepId": "PersonMasteringTwoSteps-PersonMatch-matching"
     },
-    "2" : {
-      "name" : "PersonMerge",
-      "description" : "",
-      "options" : {
-        "stepUpdate" : false,
-        "additionalCollections" : [ ],
-        "sourceQuery" : "cts.collectionQuery([\"datahubMasteringMatchSummary\"])",
-        "acceptsBatch" : false,
-        "targetEntity" : "Person",
-        "sourceDatabase" : "data-hub-FINAL",
-        "collections" : [ "PersonMerge", "Person" ],
-        "mergeOptions" : {
-          "matchOptions" : "",
-          "propertyDefs" : {
-            "properties" : [ {
-              "localname" : "SSN",
-              "name" : "SSN"
-            }, {
-              "localname" : "name",
-              "name" : "name"
-            }, {
-              "localname" : "address",
-              "name" : "address"
-            }, {
-              "path": "/es:envelope/es:instance/Person/name/firstName",
-              "name": "firstName"
-            }],
-            "namespaces" : { }
-          },
-          "algorithms" : {
-            "stdAlgorithm" : {
-              "timestamp" : { }
-            },
-            "custom" : [ ],
-            "collections" : { }
-          },
-          "mergeStrategies" : [ ],
-          "merging" : [ {
-            "propertyName" : "SSN",
-            "maxValues" : "1",
-            "sourceWeights" : [ ]
-          }, {
-            "propertyName" : "firstName",
-            "maxValues" : "999",
-            "sourceWeights" : [ ]
-          }, {
-            "propertyName" : "address",
-            "sourceWeights" : [ ]
-          } ]
-        },
-        "permissions" : "data-hub-operator,read,data-hub-operator,update",
-        "sourceCollection" : "datahubMasteringMatchSummary",
-        "outputFormat" : "json",
-        "targetDatabase" : "data-hub-FINAL"
-      },
-      "customHook" : {
-        "module" : "",
-        "parameters" : { },
-        "user" : "",
-        "runBefore" : false
-      },
-      "retryLimit" : null,
-      "batchSize" : 100,
-      "threadCount" : 4,
-      "stepDefinitionName" : "default-merging",
-      "stepDefinitionType" : "MERGING"
+    "2": {
+      "stepId": "PersonMasteringTwoSteps-PersonMerge-merging"
     }
-  }
+  },
+  "lastUpdated": "2020-11-18T22:09:47.444392Z"
 }

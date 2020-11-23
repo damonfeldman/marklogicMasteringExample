@@ -1,0 +1,61 @@
+{
+  "collections": [
+    "Person2Map",
+    "Person2"
+  ],
+  "additionalCollections": [ ],
+  "permissions": "data-hub-common,read,data-hub-common,update",
+  "batchSize": "5",
+  "validateEntity": "doNotValidate",
+  "targetFormat": "json",
+  "name": "Person2Map",
+  "targetEntityType": "http://example.org/Person2-0.0.1/Person2",
+  "description": "",
+  "selectedSource": "collection",
+  "sourceQuery": "cts.collectionQuery(['Person2'])",
+  "stepDefinitionName": "entity-services-mapping",
+  "stepDefinitionType": "mapping",
+  "stepId": "Person2Map-mapping",
+  "sourceDatabase": "data-hub-STAGING",
+  "targetDatabase": "data-hub-FINAL",
+  "provenanceGranularityLevel": "coarse",
+  "lastUpdated": "2020-11-20T16:14:40.809506Z",
+  "properties": {
+    "SSN": {
+      "sourcedFrom": "SSN"
+    },
+    "name": {
+      "sourcedFrom": "/",
+      "properties": {
+        "lastName": {
+          "sourcedFrom": "LastName"
+        }
+      },
+      "targetEntityType": "#/definitions/nametype"
+    },
+    "address": {
+      "sourcedFrom": "/",
+      "properties": {
+        "street": {
+          "sourcedFrom": "Address"
+        },
+        "zip": {
+          "sourcedFrom": "/",
+          "properties": {
+            "zip5": {
+              "sourcedFrom": "ZipCode"
+            },
+            "zip4": {
+              "sourcedFrom": "Zip4"
+            }
+          },
+          "targetEntityType": "#/definitions/ziptype"
+        }
+      },
+      "targetEntityType": "#/definitions/addresstype"
+    }
+  },
+  "headers": { },
+  "processors": [ ],
+  "customHook": { }
+}

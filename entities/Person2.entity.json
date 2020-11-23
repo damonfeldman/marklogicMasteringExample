@@ -1,6 +1,6 @@
 {
   "info": {
-    "title": "Person",
+    "title": "Person2",
     "version": "0.0.1",
     "baseUri": "http://example.org/"
   },
@@ -45,7 +45,7 @@
         }
       }
     },
-    "Person": {
+    "Person2": {
       "required": [ ],
       "pii": [ ],
       "wordLexicon": [ ],

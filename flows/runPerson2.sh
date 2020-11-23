@@ -1,0 +1,1 @@
+java -jar marklogic-data-hub-5.3.0-rc3-client.jar runFlow -host localhost -username admin -password admin -flowName Person2Load -inputFilePath "/Users/dfeldman/ProjectRepos/masterigTests/data/persons"

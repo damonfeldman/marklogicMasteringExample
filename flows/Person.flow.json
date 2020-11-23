@@ -1,78 +1,18 @@
 {
-  "name" : "Person",
-  "description" : "",
-  "batchSize" : 100,
-  "threadCount" : 4,
-  "stopOnError" : false,
-  "options" : { },
-  "version" : 0,
-  "steps" : {
-    "1" : {
-      "name" : "IngestPersonJson",
-      "description" : "",
-      "options" : {
-        "additionalCollections" : [ ],
-        "headers" : {
-          "sources" : [ {
-            "name" : "Person"
-          } ],
-          "createdOn" : "currentDateTime",
-          "createdBy" : "currentUser"
-        },
-        "sourceQuery" : "cts.collectionQuery([])",
-        "collections" : [ "IngestPersonJson" ],
-        "permissions" : "data-hub-operator,read,data-hub-operator,update",
-        "outputFormat" : "json",
-        "targetDatabase" : "data-hub-STAGING"
-      },
-      "customHook" : {
-        "module" : "",
-        "parameters" : { },
-        "user" : "",
-        "runBefore" : false
-      },
-      "retryLimit" : 0,
-      "batchSize" : 100,
-      "threadCount" : 4,
-      "stepDefinitionName" : "default-ingestion",
-      "stepDefinitionType" : "INGESTION",
-      "fileLocations" : {
-        "inputFilePath" : "/Users/dfeldman/ProjectRepos/masterigTests/data/persons",
-        "inputFileType" : "json",
-        "outputURIReplacement" : "",
-        "separator" : ""
-      }
+  "name": "Person",
+  "description": "",
+  "batchSize": 100,
+  "threadCount": 4,
+  "stopOnError": false,
+  "options": { },
+  "version": 0,
+  "steps": {
+    "1": {
+      "stepId": "Person-IngestPersonJson-ingestion"
     },
-    "2" : {
-      "name" : "MapPersonJSON",
-      "description" : "",
-      "options" : {
-        "additionalCollections" : [ ],
-        "sourceQuery" : "cts.collectionQuery([\"IngestPersonJson\"])",
-        "mapping" : {
-          "name" : "Person-MapPersonJSON",
-          "version" : 0
-        },
-        "targetEntity" : "Person",
-        "sourceDatabase" : "data-hub-STAGING",
-        "collections" : [ "MapPersonJSON", "Person" ],
-        "permissions" : "data-hub-operator,read,data-hub-operator,update",
-        "validateEntity" : false,
-        "sourceCollection" : "IngestPersonJson",
-        "outputFormat" : "json",
-        "targetDatabase" : "data-hub-FINAL"
-      },
-      "customHook" : {
-        "module" : "",
-        "parameters" : { },
-        "user" : "",
-        "runBefore" : false
-      },
-      "retryLimit" : null,
-      "batchSize" : 100,
-      "threadCount" : 4,
-      "stepDefinitionName" : "entity-services-mapping",
-      "stepDefinitionType" : "MAPPING"
+    "2": {
+      "stepId": "Person-MapPersonJSON-mapping"
     }
-  }
+  },
+  "lastUpdated": "2020-11-18T22:09:47.495812Z"
 }

@@ -1,0 +1,62 @@
+{
+  "name": "Person-MapPersonJSON",
+  "description": "",
+  "batchSize": 100,
+  "threadCount": 4,
+  "stepDefinitionName": "entity-services-mapping",
+  "stepDefinitionType": "MAPPING",
+  "additionalCollections": [ ],
+  "sourceQuery": "cts.collectionQuery([\"IngestPersonJson\"])",
+  "sourceDatabase": "data-hub-STAGING",
+  "collections": [
+    "MapPersonJSON",
+    "Person"
+  ],
+  "permissions": "data-hub-operator,read,data-hub-operator,update",
+  "validateEntity": false,
+  "targetDatabase": "data-hub-FINAL",
+  "targetFormat": "json",
+  "targetEntityType": "http://example.org/Person-0.0.1/Person",
+  "properties": {
+    "address": {
+      "sourcedFrom": "/",
+      "properties": {
+        "street": {
+          "sourcedFrom": "Address"
+        },
+        "zip": {
+          "sourcedFrom": "/",
+          "properties": {
+            "zip5": {
+              "sourcedFrom": "ZipCode"
+            },
+            "zip4": {
+              "sourcedFrom": "Zip4"
+            }
+          },
+          "targetEntityType": "#/definitions/ziptype"
+        }
+      },
+      "targetEntityType": "#/definitions/addresstype"
+    },
+    "name": {
+      "sourcedFrom": "/",
+      "properties": {
+        "firstName": {
+          "sourcedFrom": "FirstName"
+        },
+        "lastName": {
+          "sourcedFrom": "LastName"
+        }
+      },
+      "targetEntityType": "#/definitions/nametype"
+    },
+    "SSN": {
+      "sourcedFrom": "SSN"
+    }
+  },
+  "namespaces": { },
+  "selectedSource": "query",
+  "stepId": "Person-MapPersonJSON-mapping",
+  "lastUpdated": "2020-11-18T22:32:30.674928Z"
+}
